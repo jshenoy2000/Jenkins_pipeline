@@ -9,8 +9,8 @@ pipeline{
     stages{
         stage("Compile"){
             steps{
-            sh 'javac Test.java'
-            sh 'compiling version "${JAG_VERSION}"'
+                sh 'javac Test.java'
+                sh '"compiling version ${JAG_VERSION}"'
             }
         }
         stage("Execute"){
