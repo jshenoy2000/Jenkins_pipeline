@@ -1,9 +1,16 @@
 pipeline{
     agent any
+    environment{
+        JAG_VERSION="1.35"
+    }
+    tools{
+        maven "maven"
+    }
     stages{
         stage("Compile"){
             steps{
             sh 'javac Test.java'
+            sh 'compiling version "${JAG_VERSION}"'
             }
         }
         stage("Execute"){
