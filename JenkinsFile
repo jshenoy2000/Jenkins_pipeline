@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+    stages{
+        stage("Compile"){
+            steps{
+            sh 'javac Test.java'
+            }
+        }
+        stage("Execute"){
+            steps{
+                sh 'java Test'
+            }
+        }
+    }
+    post{
+        always{
+            sh 'echo "Always print this"'
+        }
+        success{
+            sh 'echo "Build Success"'
+        }
+        failure{
+            sh 'echo "Failure"'
+        }
+    }
+}
